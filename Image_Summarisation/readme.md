@@ -2,4 +2,4 @@
 
 only CLIP and BLIP are somewhat giving decent results form the file trial1.ipynb
 
-
+because all this are taking so much times so we have a bakckup in form gemini api , hjope it doesnt cosrts us much lol 
