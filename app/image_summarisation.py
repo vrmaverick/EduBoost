@@ -1,0 +1,108 @@
+from PIL import Image
+import io
+import google.generativeai as genai
+import streamlit as st
+import json
+import os
+from datetime import datetime
+os.environ["GOOGLE_API_KEY"] = "AIzaSyCv1YBH9lmWj4Kd4559O-GpRTI-6V-6BtY"
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+FEEDBACK_FILE = 'feedback.json'
+
+def initialize_model():
+    # Use environment variable for API key
+    api_key = os.getenv('GENAI_API_KEY')
+    genai.api_key = api_key
+    return genai.GenerativeModel('gemini-pro')
+
+def read_image(image_file):
+    # Convert the uploaded file to a PIL Image
+    image = Image.open(image_file)
+    return image
+
+def image_to_byte_array(image):
+    # No need for saving to a BytesIO object
+    return image
+
+def summarize_image(image_file, keywords):
+    model = initialize_model()
+    image = read_image(image_file)  # Convert to PIL Image
+    image_content = image_to_byte_array(image)  # Convert to byte array
+
+    try:
+        response = model.generate_content(
+            [
+                f"Summarize this image {image_content} in an educational way. Here are some keywords to help you understand the context: {keywords}"            ]
+        )
+        return response.text
+    except Exception as e:
+        return f"An error occurred: {e}"
+
+def get_keywords(image_file, question):
+    model = initialize_model()
+    image = read_image(image_file)  # Convert to PIL Image
+    image_content = image_to_byte_array(image)  # Convert to byte array
+
+    try:
+        response = model.generate_content(
+            [
+                f"Answer the following question about this image , {image_content}: {question}",
+                f'heres the summary of the page {summary}'
+              
+            ]
+        )
+        return response.text
+    except Exception as e:
+        return f"An error occurred: {e}"
+
+def handle_feedback(feedback):
+    feedback_data = {
+        'feedback': feedback,
+        'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    }
+    if os.path.exists(FEEDBACK_FILE):
+        with open(FEEDBACK_FILE, "r") as file:
+            all_feedback = json.load(file)
+    else:
+        all_feedback = []
+
+    all_feedback.append(feedback_data)
+    
+    with open(FEEDBACK_FILE, "w") as file:
+        json.dump(all_feedback, file, indent=4)
+
+def image_summarization_page():
+    st.title("📷 Image Summarization")
+
+    uploaded_file = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
+
+    if uploaded_file:
+        st.image(uploaded_file, caption='Uploaded Image', use_column_width=True)
+        keywords = st.text_input("Enter keywords for summarization", "")
+
+        if st.button("Generate Summary"):
+            if uploaded_file and keywords:
+                summary = summarize_image(uploaded_file, keywords)
+                st.write("### Summary")
+                st.write(summary)
+            else:
+                st.error("Please upload an image and enter keywords.")
+
+        question = st.text_input("Ask a question about the image", "")
+        if st.button("Get Answer"):
+            if uploaded_file and question:
+                answer = get_keywords(uploaded_file, question)
+                st.write("### Answer")
+                st.write(answer)
+            else:
+                st.error("Please upload an image and enter a question.")
+
+        feedback = st.text_area("Provide feedback", "")
+        if st.button("Submit Feedback"):
+            if feedback:
+                handle_feedback(feedback)
+                st.success("Feedback submitted successfully!")
+            else:
+                st.error("Please enter your feedback.")
+    else:
+        st.write("Please upload an image to get started.")
