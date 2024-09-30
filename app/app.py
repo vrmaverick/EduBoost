@@ -2,6 +2,8 @@ import streamlit as st
 import json
 from datetime import datetime
 from image_summarisation import image_summarization_page
+from image_colorisaiton import image_colorisation_page
+from image_sum_using_blip2 import image_summarization_page2
 
 BLOG_FILE = 'blogs.json'
 
@@ -146,7 +148,7 @@ def main():
 
     # Sidebar navigation for main pages
     st.sidebar.title("📚 Navigation")
-    page = st.sidebar.selectbox("Select Page", ["🏠 Home", "✍️ Blog Interface", "📄 Image Summarisation"])
+    page = st.sidebar.selectbox("Select Page", ["🏠 Home", "✍️ Blog Interface", "📄 Image Summarisation" , "Image Colorisation"])
 
     # Home Page
     if page == "🏠 Home":
@@ -235,6 +237,8 @@ def main():
     # Image Summarisation
     elif page == "📄 Image Summarisation":
         image_summarization_page()
+    elif page == "Image Colorisation":
+        image_colorisation_page()
 
 if __name__ == '__main__':
     main()

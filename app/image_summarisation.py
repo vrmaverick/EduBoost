@@ -5,13 +5,15 @@ import streamlit as st
 import json
 import os
 from datetime import datetime
+
+# Set the Google API key
 os.environ["GOOGLE_API_KEY"] = "AIzaSyCv1YBH9lmWj4Kd4559O-GpRTI-6V-6BtY"
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 FEEDBACK_FILE = 'feedback.json'
 
 def initialize_model():
     # Use environment variable for API key
-    api_key = os.getenv('GENAI_API_KEY')
+    api_key = os.getenv('GOOGLE_API_KEY')
     genai.api_key = api_key
     return genai.GenerativeModel('gemini-pro')
 
@@ -32,13 +34,14 @@ def summarize_image(image_file, keywords):
     try:
         response = model.generate_content(
             [
-                f"Summarize this image {image_content} in an educational way. Here are some keywords to help you understand the context: {keywords}"            ]
+                f"Summarize this image {image_content} in an educational way. Here are some keywords to help you understand the context: {keywords}"
+            ]
         )
         return response.text
     except Exception as e:
         return f"An error occurred: {e}"
 
-def get_keywords(image_file, question):
+def get_keywords(image_file, question, summary):
     model = initialize_model()
     image = read_image(image_file)  # Convert to PIL Image
     image_content = image_to_byte_array(image)  # Convert to byte array
@@ -46,9 +49,8 @@ def get_keywords(image_file, question):
     try:
         response = model.generate_content(
             [
-                f"Answer the following question about this image , {image_content}: {question}",
-                f'heres the summary of the page {summary}'
-              
+                f"Answer the following question about this image, {image_content}: {question}",
+                f'Here is the summary of the page: {summary}'
             ]
         )
         return response.text
@@ -74,7 +76,7 @@ def handle_feedback(feedback):
 def image_summarization_page():
     st.title("📷 Image Summarization")
 
-    uploaded_file = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
+    uploaded_file = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg" , "jfif" , "webp"])
 
     if uploaded_file:
         st.image(uploaded_file, caption='Uploaded Image', use_column_width=True)
@@ -82,18 +84,26 @@ def image_summarization_page():
 
         if st.button("Generate Summary"):
             if uploaded_file and keywords:
-                summary = summarize_image(uploaded_file, keywords)
-                st.write("### Summary")
-                st.write(summary)
+                with st.spinner("🔍 Generating summary..."):
+                    summary = summarize_image(uploaded_file, keywords)
+                    st.session_state.summary = summary  # Store summary in session state
+                    st.write("### Summary")
+                    st.write(summary)
             else:
                 st.error("Please upload an image and enter keywords.")
+
+        # Display the stored summary if available
+        if 'summary' in st.session_state:
+            st.write("### Summary")
+            st.write(st.session_state.summary)
 
         question = st.text_input("Ask a question about the image", "")
         if st.button("Get Answer"):
             if uploaded_file and question:
-                answer = get_keywords(uploaded_file, question)
-                st.write("### Answer")
-                st.write(answer)
+                with st.spinner("🤔 Getting answer..."):
+                    answer = get_keywords(uploaded_file, question, st.session_state.summary)
+                    st.write("### Answer")
+                    st.write(answer)
             else:
                 st.error("Please upload an image and enter a question.")
 
@@ -106,3 +116,4 @@ def image_summarization_page():
                 st.error("Please enter your feedback.")
     else:
         st.write("Please upload an image to get started.")
+
