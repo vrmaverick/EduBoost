@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "eduboost-8850a",
+  "private_key_id": "7e7039f83f3fe2142610668dc6c3efc354abc8ff",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCYpon+FsCZfc8q\nbM0dEkeqP0GKon1P31k4ssT9clOL8Z6XZ8WGyeZL23ptN/XuXeRPp92iAIwDf53C\n5l3xtb65DTjyAjG9fQNhXXyDu//kDE9ZI6sz1Lru4mu01brt8E5MHhV61+dqYyyA\nMybi4zQ+nUqZeY8k+gnWcXQwiw+BlmLNeEpXluBUx+SpcB3+l8FXWp72HlQ1TzHl\nEpihcojsnyLzd6ELFug2OiInAPRYVU/ROozQ9lNXSUKmxRUxfvnzyvdI3bJkD7Mu\n6gq3ht8/USfMk+Kfd5/b9vFSI2/0ijEW99tq4DU6h/dGJiM1u2XFQWTIGRGW3iz6\n+QrYBWsjAgMBAAECggEAF9Oq51+6yVqTWw5nh7miOQctnkuVnsGAhjKVP/A37TiW\nJhDbCpp6GW4VMnYRK5c5O1u64v4N3L/vKoxVrpRNREo1kMTZ6bdZLznt5QwTuY9Y\nVVQVdX4nfYEXCb9wsZIYTpZFiQqpQvhe6lXRpImNTpaznbgVKVLj9TZ5Sdhy36mR\nZMyuxGHM0EIQ/NoQZnCvp2hRHWiC49WUZ96mN4wTZTp8aIrIo8IFMb1x5UaOJIVM\njamc32h8ao0L5W6kaiug+SWcm4H4qAAE+HZDWBm8LPioHr462DZ2zcoKZuGacQkJ\ncGGoqtcniIOkheY0VEPNvwuDehZcSbBUgG+97+orGQKBgQDG1dV5tF2FdGbu7SNa\nCWG7+aniqkwKv9y81a57T9pFPKnMUedb1icTPZzN59Fnty7OsIBo72u9RgaSRtfM\nAbOWj6OnZOYTA2yqrrJUT60gScP6t6h1kZlvWh7gectHpL5oQR1eNzCKZGe3cOb0\n6N5uIC3aFqo8t2KWHE74HLKbKQKBgQDEiYifvF+G2Fk4h/UYIa3xCvTOBW8AsCIO\nayvay6zWQUkLuoWXo+i9A9wwrgnDO8xFxJdKgfJlpE/tycjTy8dBYxAU9u9MJJIk\nQTjhjaZcgMkypwXwQKzAOSX6eV8xsV8i4TZx0+eqWB4L0OyXKJXLSmbgbbFKUTJI\nzt33j/0pawKBgQCN9s7cfnLnfhygKqA7AMfPNoqdU4nHgwVPriFN2c218YIqZ7AQ\nWe68RhlWylUxABFjcZG9WnRKR10Zw4sAFZbrwNLQCbJbkO5dTy30FI8/pmtO7yJQ\nDwzF/Epfa5ZAKNfqB9O4GR+HL/j9eJbt9fYaGs+iDtytTSIOm1emvpanQQKBgQCX\nXX1V2NSRnAqLGVrQbQ/z9wY3rcOh+gUgqbWq2vaQRNOnLs44zcov2Ms6yq9GJ8XZ\nbeE/RvmTAot0jdYYGHerikoWe2AtenT7aygNvvSDhcRvOGfAc28Y1GrFj7ibIwos\naNtvq05eyWLKouu0N1O2r+SvsIu8uvBJVtlpEwJdZQKBgGOW6rcoQgvcblBjjiXZ\nGn7Z4/tsFoBIdcTe1zrHwgG37+QkybdWX08PzpxZ33gVmbu/NO2dsVma+h44Z9gQ\nmYKMMpNteuLMx3BKGAD1bOOSvJ+SI0tBxzjhqp8FrUgcOo/gcHviJ1in5FK13itR\nqDZzVeuwJOHRP5BogBb+GD91\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-ifo4u@eduboost-8850a.iam.gserviceaccount.com",
+  "client_id": "116771789482106175661",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-ifo4u%40eduboost-8850a.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

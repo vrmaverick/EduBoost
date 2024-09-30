@@ -116,4 +116,3 @@ def image_summarization_page():
                 st.error("Please enter your feedback.")
     else:
         st.write("Please upload an image to get started.")
-
