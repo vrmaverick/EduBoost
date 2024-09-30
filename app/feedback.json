@@ -2,6 +2,7 @@
     {
         "feedback": "image modality ",
         "timestamp": "2024-09-12 21:24:32"
+<<<<<<< HEAD
     },
     {
         "feedback": "nice \n",
@@ -22,5 +23,7 @@
     {
         "feedback": "but it shows a flower ",
         "timestamp": "2024-09-30 16:04:03"
+=======
+>>>>>>> upstream/main
     }
 ]
