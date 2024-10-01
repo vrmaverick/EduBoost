@@ -1,7 +1,7 @@
 import streamlit as st 
 import json 
 import datetime
-BLOG_FILE = 'blogs.json'
+BLOG_FILE = '/workspace/EduBoost/app/blogs.json'
 
 # Load blogs from a JSON file
 def load_blogs():
