@@ -157,7 +157,3 @@ def image_summarization_page():
     else:
 <<<<<<< HEAD
         st.write("Please upload an image to get started.")
-
-=======
-        st.write("Please upload an image to get started.")
->>>>>>> upstream/main
