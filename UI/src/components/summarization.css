@@ -1,0 +1,61 @@
+/* form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #1475cf;
+  height: 500px;
+  width: 800px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.uploaded-row- {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 5px;
+  background-color: #e9f0ff;
+}
+
+.upload-content {
+    width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+} */
+
+
+.form-summarize {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #1475cf;
+    height: 500px;
+    width: 800px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .uploaded-row {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px; /* Adds space between icon and text */
+    padding: 15px 20px;
+    border-radius: 5px;
+    background-color: transparent;
+    width: 800px;
+  }
+  
+  .upload-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex: 1; /* Ensures the text spans available space */
+    word-wrap: break-word; /* Handles long file names gracefully */
+  }
