@@ -11,7 +11,7 @@ const navigation = [
   { name: "Colorization", href: "#section1" },
   { name: "Summarization", href: "/summarization" },
   { name: "Generation", href: "#" },
-  { name: "Calculator", href: "#" },
+  { name: "Calculator", href: "/calculator" },
   { name: "Blog", href: "#" },
 ];
 
