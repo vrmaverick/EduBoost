@@ -65,10 +65,14 @@ def Calculator(flag,image_dir,IMAGE,img_path):
     exp,result = SolveEquation(eqn)
     if exp == "none":
         print(result)
+        #Clearing up Space
+        delete_image(img_path)
     else:
         print(f"Expression: {exp} = {result}")
-    #Clearing up Space
-    delete_image(img_path)
+        #Clearing up Space
+        delete_image(img_path)
+
+    return eqn,exp,result
 
 if __name__ == "__main__":
 
@@ -76,6 +80,9 @@ if __name__ == "__main__":
     flag = 1#flag =1 for handwritten images,0 for drawn images
     IMAGE = "lineareqy4.png"
     img_path = "equation_images/"+IMAGE
+    eqn,exp,result = Calculator(flag,image_dir,IMAGE,img_path)
+    print(eqn,exp,result)
+
     # #plt.imshow(img_path)
     # #plt.show()
     # if flag == 1:
